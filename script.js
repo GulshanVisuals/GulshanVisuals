@@ -1,65 +1,132 @@
+/* =========================================
+   GULSHAN KUMAR PORTFOLIO
+   SCROLL ANIMATION
+========================================= */
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const menuButton = document.getElementById("menuToggle");
-    const menu = document.getElementById("navMenu");
+    /* -----------------------------------------
+       SCROLL REVEAL
+    ----------------------------------------- */
 
-    if (!menuButton || !menu) {
-        return;
-    }
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
 
-    /* OPEN / CLOSE MENU */
+    const observerOptions = {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-    menuButton.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+    const revealObserver =
+        new IntersectionObserver(
+            function (entries, observer) {
 
-        menu.classList.toggle("active");
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            observerOptions
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        revealObserver.observe(element);
 
     });
 
 
-    /* NAVIGATION LINKS */
+    /* -----------------------------------------
+       SMOOTH ANCHOR SCROLL
+    ----------------------------------------- */
 
-    const links = menu.querySelectorAll("a");
+    const links =
+        document.querySelectorAll('a[href^="#"]');
+
 
     links.forEach(function (link) {
 
-        link.addEventListener("click", function () {
+        link.addEventListener("click", function (event) {
 
-            menu.classList.remove("active");
+            const targetId =
+                this.getAttribute("href");
+
+
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
+
+
+            const target =
+                document.querySelector(targetId);
+
+
+            if (target) {
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
 
         });
 
     });
 
 
-    /* CLOSE WHEN CLICKING OUTSIDE */
+    /* -----------------------------------------
+       HEADER SHADOW ON SCROLL
+    ----------------------------------------- */
 
-    document.addEventListener("click", function (event) {
-
-        if (
-            !menu.contains(event.target) &&
-            !menuButton.contains(event.target)
-        ) {
-
-            menu.classList.remove("active");
-
-        }
-
-    });
+    const header =
+        document.querySelector(".header");
 
 
-    /* CLOSE WITH ESCAPE */
+    function updateHeader() {
 
-    document.addEventListener("keydown", function (event) {
+        if (window.scrollY > 30) {
 
-        if (event.key === "Escape") {
+            header.style.background = "rgba(0, 0, 0, 0.92)";
 
-            menu.classList.remove("active");
+            header.style.backdropFilter = "blur(12px)";
+
+        } else {
+
+            header.style.background = "#000";
+
+            header.style.backdropFilter = "none";
 
         }
 
-    });
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+
+    updateHeader();
 
 });
