@@ -1,493 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Gulshan Kumar | Creative Portfolio</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <meta name="description"
+        content="Gulshan Kumar - Graphic Designer, Video Editor and AI Creative">
 
-html{
-    scroll-behavior:smooth;
-}
+    <title>Gulshan Kumar | Creative Portfolio</title>
 
-body{
-    background:#000;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-/* HEADER */
-
-header{
-    width:100%;
-    height:85px;
-    padding:0 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #222;
-    position:relative;
-    z-index:10;
-}
-
-.logo{
-    font-size:34px;
-    font-weight:900;
-    letter-spacing:-3px;
-}
-
-.logo span{
-    color:#555;
-}
-
-.contact-btn{
-    padding:14px 24px;
-    border:1px solid #555;
-    font-size:13px;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-.contact-btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* HERO */
-
-.hero{
-    min-height:calc(100vh - 85px);
-    padding:100px 6%;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:1000px;
-}
-
-.small-title{
-    color:#777;
-    font-size:13px;
-    letter-spacing:6px;
-    margin-bottom:30px;
-}
-
-h1{
-    font-size:clamp(60px,12vw,155px);
-    line-height:.82;
-    letter-spacing:-8px;
-    font-weight:900;
-    margin-bottom:45px;
-}
-
-h1 span{
-    display:block;
-    color:#555;
-}
-
-.hero h2{
-    font-size:clamp(20px,3vw,36px);
-    font-weight:500;
-    line-height:1.3;
-    margin-bottom:25px;
-}
-
-.description{
-    max-width:650px;
-    color:#999;
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:40px;
-}
-
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.button{
-    min-height:56px;
-    padding:0 30px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid #fff;
-    font-size:13px;
-    letter-spacing:2px;
-    transition:.3s;
-}
-
-.button:hover{
-    transform:translateY(-4px);
-}
-
-.white{
-    background:#fff;
-    color:#000;
-}
-
-.outline{
-    border-color:#555;
-}
-
-/* CIRCLE */
-
-.circle{
-    position:absolute;
-    width:800px;
-    height:800px;
-    border:1px solid #222;
-    border-radius:50%;
-    right:-300px;
-    top:25%;
-    animation:rotate 25s linear infinite;
-}
-
-@keyframes rotate{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
-}
-
-/* SECTIONS */
-
-section{
-    padding:140px 6%;
-    border-top:1px solid #222;
-}
-
-.section-number{
-    color:#555;
-    font-size:14px;
-    margin-bottom:25px;
-}
-
-.section-label{
-    color:#777;
-    font-size:13px;
-    letter-spacing:5px;
-    margin-bottom:25px;
-}
-
-section h2{
-    font-size:clamp(45px,7vw,90px);
-    line-height:.95;
-    letter-spacing:-4px;
-    margin-bottom:40px;
-}
-
-section h2 span{
-    color:#555;
-}
-
-section p{
-    max-width:750px;
-    color:#999;
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
-/* SKILLS */
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    border-top:1px solid #333;
-}
-
-.skill{
-    padding:35px 20px;
-    border-bottom:1px solid #333;
-}
-
-.skill:nth-child(odd){
-    border-right:1px solid #333;
-}
-
-.skill-number{
-    color:#555;
-}
-
-.skill h3{
-    font-size:25px;
-    margin:18px 0 8px;
-}
-
-.skill p{
-    font-size:14px;
-    margin:0;
-}
-
-/* WORK */
-
-.work{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.work-card{
-    border:1px solid #333;
-    min-height:300px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#555;
-    letter-spacing:3px;
-    transition:.3s;
-}
-
-.work-card:hover{
-    transform:translateY(-8px);
-    border-color:#777;
-    color:#fff;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-    margin:0 auto 40px;
-}
-
-.contact .buttons{
-    justify-content:center;
-}
-
-/* FOOTER */
-
-footer{
-    padding:40px 6%;
-    border-top:1px solid #222;
-    text-align:center;
-    color:#555;
-}
-
-/* ANIMATION */
-
-.reveal{
-    opacity:0;
-    transform:translateY(50px);
-    transition:opacity .8s ease,transform .8s ease;
-}
-
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    header{
-        height:75px;
-        padding:0 20px;
-    }
-
-    .logo{
-        font-size:28px;
-    }
-
-    .contact-btn{
-        padding:11px 15px;
-        font-size:10px;
-        letter-spacing:1.5px;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:90px 20px 120px;
-    }
-
-    h1{
-        font-size:clamp(52px,17vw,90px);
-        letter-spacing:-5px;
-        margin-bottom:35px;
-    }
-
-    .small-title{
-        font-size:10px;
-        letter-spacing:4px;
-    }
-
-    .hero h2{
-        font-size:20px;
-    }
-
-    .description{
-        font-size:16px;
-    }
-
-    .buttons{
-        flex-direction:column;
-        width:100%;
-    }
-
-    .button{
-        width:100%;
-    }
-
-    .circle{
-        width:500px;
-        height:500px;
-        right:-300px;
-        top:50%;
-    }
-
-    section{
-        padding:90px 20px;
-    }
-
-    section h2{
-        font-size:clamp(42px,13vw,70px);
-    }
-
-    section p{
-        font-size:16px;
-    }
-
-    .skills{
-        grid-template-columns:1fr;
-    }
-
-    .skill:nth-child(odd){
-        border-right:none;
-    }
-
-    .skill{
-        padding:30px 5px;
-    }
-
-    .work{
-        grid-template-columns:1fr;
-    }
-
-    .work-card{
-        min-height:230px;
-    }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">GK<span>.</span></div>
+    <!-- HEADER -->
 
-    <a class="contact-btn"
-       href="https://wa.me/qr/2ZJ45QUS27NZM1"
-       target="_blank">
-       CONTACT US
-    </a>
-</header>
+    <header class="header">
 
-<main>
+        <a href="#home" class="logo">
+            GK<span>.</span>
+        </a>
 
-<!-- HERO -->
+        <a href="#contact" class="contact-button">
+            CONTACT US
+        </a>
 
-<div class="hero">
+    </header>
 
-    <div class="circle"></div>
 
-    <div class="hero-content reveal">
+    <!-- HERO -->
 
-        <div class="small-title">
-            CREATIVE PORTFOLIO
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-circle"></div>
+
+            <div class="hero-content reveal">
+
+                <p class="eyebrow">
+                    CREATIVE PORTFOLIO
+                </p>
+
+                <h1>
+                    GULSHAN
+                    <span>KUMAR</span>
+                </h1>
+
+                <h2>
+                    Graphic Designer · Video Editor · AI Creative
+                </h2>
+
+                <p class="hero-description">
+                    Creating clean, engaging and modern visual
+                    experiences through graphic design, video
+                    editing and AI-powered creativity.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#work" class="btn btn-white">
+                        VIEW MY WORK
+                    </a>
+
+                    <a href="https://wa.me/qr/2ZJ45QUS27NZM1"
+                       target="_blank"
+                       class="btn btn-outline">
+                        WHATSAPP ME
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="section" id="about">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <div class="section-content reveal">
+
+                <p class="section-label">
+                    ABOUT ME
+                </p>
+
+                <h2>
+                    Turning ideas into
+                    <span>visual experiences.</span>
+                </h2>
+
+                <p>
+                    I'm Gulshan Kumar, a Graphic Designer and
+                    Video Editor focused on creating clean,
+                    engaging and modern visual content.
+                </p>
+
+                <p>
+                    I work across graphic design, video editing,
+                    illustrations and AI-powered image and
+                    video creation.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section class="section" id="skills">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="section-content reveal">
+
+                <p class="section-label">
+                    MY SKILLS
+                </p>
+
+                <h2>
+                    Tools I use
+                    <span>to create.</span>
+                </h2>
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+
+                        <span>01</span>
+
+                        <h3>
+                            Adobe Photoshop
+                        </h3>
+
+                        <p>
+                            Graphic Design · Photo Editing
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <span>02</span>
+
+                        <h3>
+                            Adobe Premiere Pro
+                        </h3>
+
+                        <p>
+                            Video Editing · Reels · Short-form
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <span>03</span>
+
+                        <h3>
+                            Adobe Illustrator
+                        </h3>
+
+                        <p>
+                            Illustration · Vector Design
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <span>04</span>
+
+                        <h3>
+                            Canva
+                        </h3>
+
+                        <p>
+                            Social Media · Marketing Design
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <span>05</span>
+
+                        <h3>
+                            AI Image Creation
+                        </h3>
+
+                        <p>
+                            AI Visual Generation · Editing
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <span>06</span>
+
+                        <h3>
+                            AI Video Creation
+                        </h3>
+
+                        <p>
+                            AI Video · Motion · Creative Concepts
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORK -->
+
+        <section class="section" id="work">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <div class="section-content reveal">
+
+                <p class="section-label">
+                    SELECTED WORK
+                </p>
+
+                <h2>
+                    Creative
+                    <span>projects.</span>
+                </h2>
+
+
+                <div class="portfolio-grid">
+
+
+                    <article class="portfolio-card">
+
+                        <div class="portfolio-placeholder">
+                            PROJECT 01
+                        </div>
+
+                        <div class="portfolio-info">
+
+                            <h3>
+                                Graphic Design
+                            </h3>
+
+                            <p>
+                                Social Media & Creative Design
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="portfolio-card">
+
+                        <div class="portfolio-placeholder">
+                            PROJECT 02
+                        </div>
+
+                        <div class="portfolio-info">
+
+                            <h3>
+                                Video Editing
+                            </h3>
+
+                            <p>
+                                Reels & Short-form Content
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="portfolio-card">
+
+                        <div class="portfolio-placeholder">
+                            PROJECT 03
+                        </div>
+
+                        <div class="portfolio-info">
+
+                            <h3>
+                                AI Creative
+                            </h3>
+
+                            <p>
+                                AI Image & Video Creation
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact-section"
+                 id="contact">
+
+            <div class="contact-content reveal">
+
+                <p class="section-label">
+                    LET'S WORK TOGETHER
+                </p>
+
+                <h2>
+                    Have a project?
+                    <span>Let's create.</span>
+                </h2>
+
+                <p>
+                    Have a design, video or AI creative project?
+                    Let's discuss it.
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a href="https://wa.me/qr/2ZJ45QUS27NZM1"
+                       target="_blank"
+                       class="btn btn-white">
+                        WHATSAPP ME
+                    </a>
+
+                    <a href="tel:+918437337875"
+                       class="btn btn-outline">
+                        CALL 8437337875
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            GK<span>.</span>
         </div>
-
-        <h1>
-            GULSHAN
-            <span>KUMAR</span>
-        </h1>
-
-        <h2>
-            Graphic Designer · Video Editor · AI Creative
-        </h2>
-
-        <p class="description">
-            Creating visual experiences through graphic design,
-            video editing, illustration and AI-powered image
-            and video creation.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#work" class="button white">
-                VIEW MY WORK
-            </a>
-
-            <a href="https://wa.me/qr/2ZJ45QUS27NZM1"
-               target="_blank"
-               class="button outline">
-                WHATSAPP ME
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-    <div class="section-number">01</div>
-
-    <div class="reveal">
-
-        <div class="section-label">
-            ABOUT ME
-        </div>
-
-        <h2>
-            Turning ideas into
-            <span>visual experiences.</span>
-        </h2>
 
         <p>
-            I'm Gulshan Kumar, a Graphic Designer and Video
-            Editor focused on creating clean, engaging and
-            modern visual content.
+            © 2026 Gulshan Kumar. All Rights Reserved.
         </p>
 
-        <p>
-            I work across graphic design, video editing,
-            illustrations and AI-powered image and video
-            creation.
-        </p>
-
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- SKILLS -->
+    <script src="script.js"></script>
 
-<section id="skills">
-
-    <div class="section-number">
+</body>
+</html>
